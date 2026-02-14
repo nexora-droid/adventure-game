@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dnjws642i0y7u"]
+
+[ext_resource type="Script" uid="uid://butenymgs8d68" path="res://scripts/player.gd" id="1_s027a"]
+[ext_resource type="SpriteFrames" uid="uid://3bpqc7jejnad" path="res://assets/sprites/duelyst-animated-sprites-godot-e9df7a6824b0f9fd16dc43534a93b6f150b13bca/addons/duelyst_animated_sprites/assets/spriteframes/units/f1_invincibuddy.tres" id="2_14505"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wcc8"]
+size = Vector2(17, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sknh"]
+size = Vector2(42, 48)
+
+[node name="Player" type="CharacterBody2D" unique_id=176458818]
+script = ExtResource("1_s027a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656056375]
+sprite_frames = ExtResource("2_14505")
+animation = &"attack"
+frame_progress = 0.13135754
+
+[node name="Attack_Detector" type="CollisionShape2D" parent="." unique_id=1768439886]
+position = Vector2(39, 7)
+shape = SubResource("RectangleShape2D_4wcc8")
+disabled = true
+
+[node name="Body" type="CollisionShape2D" parent="." unique_id=602405680]
+position = Vector2(1, 11)
+shape = SubResource("RectangleShape2D_8sknh")
