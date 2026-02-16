@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
+const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
-@onready var attack_detector: CollisionShape2D = $Attack_Detector
 @onready var body: CollisionShape2D = $Body
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -16,6 +15,7 @@ func _physics_process(delta: float) -> void:
 	
 	if direction != Vector2.ZERO:
 		velocity = direction.normalized() * SPEED
+		animated_sprite_2d.play("run")
 	else:
 		velocity = Vector2.ZERO
 	if direction.x > 0:

@@ -550,7 +550,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -639,7 +639,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"breathing",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -704,7 +704,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -718,7 +718,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hit",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -783,7 +783,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -830,5 +830,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 9.0
+"speed": 10.0
 }]
