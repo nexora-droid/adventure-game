@@ -1,6 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=83 format=3 uid="uid://bwyhvqp8bphxj"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bwyhvqp8bphxj"]
 
-[ext_resource type="Texture2D" uid="uid://b3rxkfjfyird7" path="res://addons/duelyst_animated_sprites/assets/spritesheets/units/boss_sandpanther.png" id="1_p7qaj"]
+[ext_resource type="Texture2D" uid="uid://hge3ubxrnd3h" path="res://assets/sprites/duelyst-animated-sprites-godot-e9df7a6824b0f9fd16dc43534a93b6f150b13bca/addons/duelyst_animated_sprites/assets/spritesheets/units/boss_sandpanther.png" id="1_p7qaj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f561v"]
 atlas = ExtResource("1_p7qaj")
@@ -407,7 +407,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_125ie")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 9.0
 }, {
@@ -507,7 +507,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rdp48")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 9.0
 }, {
@@ -521,7 +521,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_an0rt")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 9.0
 }, {

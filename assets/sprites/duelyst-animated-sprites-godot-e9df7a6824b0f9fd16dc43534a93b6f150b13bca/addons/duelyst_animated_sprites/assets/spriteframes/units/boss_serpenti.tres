@@ -1,6 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=79 format=3 uid="uid://ciksh8mgw3a2i"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://ciksh8mgw3a2i"]
 
-[ext_resource type="Texture2D" uid="uid://bqq2jm77oq3gn" path="res://addons/duelyst_animated_sprites/assets/spritesheets/units/boss_serpenti.png" id="1_0gq07"]
+[ext_resource type="Texture2D" uid="uid://d04cvnaqn3h6f" path="res://assets/sprites/duelyst-animated-sprites-godot-e9df7a6824b0f9fd16dc43534a93b6f150b13bca/addons/duelyst_animated_sprites/assets/spritesheets/units/boss_serpenti.png" id="1_0gq07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24k0o"]
 atlas = ExtResource("1_0gq07")

@@ -1,6 +1,6 @@
-[gd_resource type="SpriteFrames" load_steps=86 format=3 uid="uid://dn645t24xpuhj"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dn645t24xpuhj"]
 
-[ext_resource type="Texture2D" uid="uid://drh62b2uohvo" path="res://addons/duelyst_animated_sprites/assets/spritesheets/units/boss_shadowlord.png" id="1_3yyrl"]
+[ext_resource type="Texture2D" uid="uid://vcomn7cjtkmm" path="res://assets/sprites/duelyst-animated-sprites-godot-e9df7a6824b0f9fd16dc43534a93b6f150b13bca/addons/duelyst_animated_sprites/assets/spritesheets/units/boss_shadowlord.png" id="1_3yyrl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gku0k"]
 atlas = ExtResource("1_3yyrl")

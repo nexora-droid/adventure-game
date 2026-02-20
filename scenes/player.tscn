@@ -6,14 +6,29 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8sknh"]
 size = Vector2(31, 46)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(78, 81)
+
 [node name="Player" type="CharacterBody2D" unique_id=176458818]
 collision_layer = 2
 script = ExtResource("1_s027a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=656056375]
 sprite_frames = ExtResource("2_14505")
-animation = &"run"
+animation = &"attack"
+autoplay = "idle"
+frame = 20
+frame_progress = 0.3524252
 
 [node name="Body" type="CollisionShape2D" parent="." unique_id=602405680]
 position = Vector2(1.5, 8)
 shape = SubResource("RectangleShape2D_8sknh")
+
+[node name="EnemyDetector" type="Area2D" parent="." unique_id=819008862]
+collision_mask = 4
+
+[node name="E_DetectorHitbox" type="CollisionShape2D" parent="EnemyDetector" unique_id=1394338354]
+position = Vector2(7, 9.5)
+shape = SubResource("RectangleShape2D_g2els")
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
