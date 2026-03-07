@@ -3,16 +3,20 @@ extends CharacterBody2D
 
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
+var health := 100
 @onready var body: CollisionShape2D = $Body
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var enemy_detector: Area2D = $EnemyDetector
 @onready var e_detector_hitbox: CollisionShape2D = $EnemyDetector/E_DetectorHitbox
+@onready var enemy_1: CharacterBody2D = $"../Enemy1"
 var is_attacking := false
 signal damage(id)
 var damage_emitted:= false
 var can_damage:= true
-@warning_ignore("unused_parameter")
-func _physics_process(delta: float) -> void:
+var is_hit := false
+func _ready() -> void:
+	enemy_1.connect("hit_player", Callable(self, "_on_damage"))
+func _physics_process(_delta: float) -> void:
 	var direction = Vector2.ZERO
 	
 	direction.x = Input.get_axis("ui_left", "ui_right")
@@ -21,12 +25,12 @@ func _physics_process(delta: float) -> void:
 		is_attacking = false
 	if direction != Vector2.ZERO:
 		velocity = direction.normalized() * SPEED
-		if not is_attacking:
+		if not is_attacking and not is_hit:
 			if sprite.animation != "run":
 				sprite.play("run")
 	else:
 		velocity = Vector2.ZERO
-		if not is_attacking:
+		if not is_attacking and not is_hit:
 			if sprite.animation != "idle":
 				sprite.play("idle")
 
@@ -54,9 +58,18 @@ func _unhandled_input(event: InputEvent) -> void:
 		damage_emitted = false
 		sprite.stop()
 		sprite.play("attack")
-		sprite.animation_finished.connect(_on_anim_finish, CONNECT_ONE_SHOT)
-func _on_anim_finish() -> void:
-	is_attacking = false
+		await sprite.animation_finished
+		is_attacking = false
 func start_damage_cooldown() -> void:
 	await get_tree().create_timer(1).timeout
 	can_damage = true
+func _on_damage() -> void:
+	if is_hit:
+		return
+	if is_attacking:
+		return
+	is_hit = true
+	sprite.play("hit")
+	print("ouch")
+	await sprite.animation_finished
+	is_hit = false
