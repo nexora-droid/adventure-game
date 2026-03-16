@@ -882,3 +882,5 @@ collision_layer = 4
 [node name="Enemy2" parent="." unique_id=1112949793 groups=["enemy"] instance=ExtResource("6_p57ef")]
 position = Vector2(871, -28)
 collision_layer = 4
+
+[editable path="HUD"]

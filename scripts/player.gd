@@ -9,6 +9,10 @@ var health := 100
 @onready var enemy_detector: Area2D = $EnemyDetector
 @onready var e_detector_hitbox: CollisionShape2D = $EnemyDetector/E_DetectorHitbox
 @onready var enemy_1: CharacterBody2D = $"../Enemy1"
+@onready var enemy_2: CharacterBody2D = $"../Enemy2"
+@onready var enemy_4: CharacterBody2D = $"../Enemy4"
+@onready var enemy_3: CharacterBody2D = $"../Enemy3"
+@onready var enemy_5: CharacterBody2D = $"../Enemy5"
 var is_attacking := false
 signal damage(id)
 var damage_emitted:= false
@@ -16,6 +20,10 @@ var can_damage:= true
 var is_hit := false
 func _ready() -> void:
 	enemy_1.connect("hit_player", Callable(self, "_on_damage"))
+	enemy_2.connect("hit_player", Callable(self, "_on_damage"))
+	enemy_3.connect("hit_player", Callable(self, "_on_damage"))
+	enemy_4.connect("hit_player", Callable(self, "_on_damage"))
+	enemy_5.connect("hit_player", Callable(self, "_on_damage"))
 func _physics_process(_delta: float) -> void:
 	var direction = Vector2.ZERO
 	
@@ -63,13 +71,22 @@ func _unhandled_input(event: InputEvent) -> void:
 func start_damage_cooldown() -> void:
 	await get_tree().create_timer(1).timeout
 	can_damage = true
+signal update_bar(value)
 func _on_damage() -> void:
 	if is_hit:
 		return
 	if is_attacking:
 		return
 	is_hit = true
-	sprite.play("hit")
+	if health == 20:
+		print("gone case")
+		sprite.play("death")
+		health -= 20
+		update_bar.emit(health)
+	else:
+		sprite.play("hit")
+		health -= 20
+		update_bar.emit(health)
 	print("ouch")
 	await sprite.animation_finished
 	is_hit = false
