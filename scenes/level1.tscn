@@ -897,3 +897,4 @@ position = Vector2(871, -28)
 collision_layer = 4
 
 [editable path="HUD"]
+[editable path="Enemy1"]

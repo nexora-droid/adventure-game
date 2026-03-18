@@ -1,0 +1,313 @@
+[gd_scene format=3 uid="uid://c5b24w7ijdnik"]
+
+[ext_resource type="FontFile" uid="uid://d37yecxd3uymu" path="res://assets/Fredoka/static/Fredoka-Bold.ttf" id="1_4584c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iw83x"]
+bg_color = Color(0.933955, 0.3966193, 0.3735778, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrahf"]
+bg_color = Color(0.93333334, 0.39607844, 0.37254903, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xj7dj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36qph"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7apw4"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_secmx"]
+bg_color = Color(0.015654815, 0.5310303, 0.5920453, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_igtir"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Card" type="Panel" unique_id=1499916165]
+offset_right = 442.0
+offset_bottom = 642.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_iw83x")
+
+[node name="CardMain" type="Panel" parent="." unique_id=468283087]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.5
+offset_top = -283.5
+offset_right = 183.5
+offset_bottom = 283.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rrahf")
+
+[node name="Panel" type="Panel" parent="CardMain" unique_id=139121720]
+layout_mode = 0
+offset_left = 191.5
+offset_top = 54.5
+offset_right = 245.5
+offset_bottom = 71.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_xj7dj")
+
+[node name="Title" type="Label" parent="CardMain" unique_id=2079049448]
+layout_mode = 0
+offset_left = 30.5
+offset_top = 29.5
+offset_right = 368.5
+offset_bottom = 90.5
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_4584c")
+theme_override_font_sizes/font_size = 45
+text = "Speed Boost - II"
+
+[node name="ICON" type="Panel" parent="CardMain" unique_id=1055728257]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = -169.0
+offset_right = 137.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_36qph")
+
+[node name="Icon" type="Control" parent="CardMain/ICON" unique_id=1952380348]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -49.5
+offset_right = 92.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shoe" type="Control" parent="CardMain/ICON/Icon" unique_id=450498099]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -48.0
+offset_right = -0.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(46, 49)
+
+[node name="Shoe2" type="Panel" parent="CardMain/ICON/Icon/Shoe" unique_id=1078000041]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 54.0
+offset_right = 88.0
+offset_bottom = 94.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7apw4")
+
+[node name="LegPart2" type="Panel" parent="CardMain/ICON/Icon/Shoe" unique_id=1306734417]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 54.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_secmx")
+
+[node name="Effect" type="Control" parent="CardMain/ICON/Icon" unique_id=2122790817]
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 30.5
+offset_right = 120.0
+offset_bottom = 70.5
+
+[node name="Panel" type="Panel" parent="CardMain/ICON/Icon/Effect" unique_id=947661969]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -21.5
+offset_right = 76.0
+offset_bottom = -3.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_igtir")
+
+[node name="Panel2" type="Panel" parent="CardMain/ICON/Icon/Effect" unique_id=1930446100]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 0.5
+offset_right = 51.0
+offset_bottom = 18.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_igtir")
+
+[node name="Panel3" type="Panel" parent="CardMain/ICON/Icon/Effect" unique_id=279758274]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 21.5
+offset_right = 99.0
+offset_bottom = 39.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_igtir")
+
+[node name="Panel4" type="Panel" parent="CardMain/ICON/Icon/Effect" unique_id=778591948]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 43.5
+offset_right = 71.0
+offset_bottom = 61.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_igtir")
+
+[node name="Pro" type="Control" parent="CardMain" unique_id=983307665]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -208.5
+offset_right = 116.0
+offset_bottom = -160.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel3" type="Panel" parent="CardMain/Pro" unique_id=1129506144]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 76.0
+offset_bottom = 31.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xj7dj")
+
+[node name="Details" type="Label" parent="CardMain/Pro" unique_id=373088011]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 209.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_4584c")
+theme_override_font_sizes/font_size = 40
+text = "+25% Speed"
+
+[node name="Con" type="Control" parent="CardMain" unique_id=164251585]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -154.5
+offset_right = 133.0
+offset_bottom = -89.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel4" type="Panel" parent="CardMain/Con" unique_id=2131713415]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 24.0
+offset_right = 203.0
+offset_bottom = 41.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xj7dj")
+
+[node name="Panel5" type="Panel" parent="CardMain/Con" unique_id=128305738]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 25.0
+offset_right = 77.0
+offset_bottom = 42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xj7dj")
+
+[node name="Details" type="Label" parent="CardMain/Con" unique_id=1981215711]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 3.0
+offset_right = 248.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_4584c")
+theme_override_font_sizes/font_size = 40
+text = "-10% Health"
+
+[node name="Con2" type="Control" parent="CardMain" unique_id=1613418409]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -70.5
+offset_right = 133.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Details" type="Label" parent="CardMain/Con2" unique_id=116203929]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.5
+offset_top = -49.0
+offset_right = 115.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.48736727, 0.44840443, 0.9612717, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_4584c")
+theme_override_font_sizes/font_size = 40
+text = "5  Eyes"
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="CardMain" unique_id=1350891283]
+layout_mode = 0
+offset_left = 258.5
+offset_top = 264.5
+offset_right = 596.5
+offset_bottom = 325.5
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_4584c")
+theme_override_font_sizes/font_size = 45
+text = "x2"
