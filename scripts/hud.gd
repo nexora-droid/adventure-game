@@ -45,6 +45,7 @@ func _update_bar(health) -> void:
 	if health == 10:
 		heart_0.texture =  load("res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/ui_heart_half.png")
 	if health == 0:
+		heart_0.texture = load("res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/ui_heart_empty.png")
 		print("oof")
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("keybind"):
@@ -54,3 +55,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			animation_player.play("keybind")
 			panel_open = true
+	if Input.is_action_just_pressed("respawn") and player.dead == true:
+		get_tree().reload_current_scene()

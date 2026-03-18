@@ -1,10 +1,11 @@
-[gd_scene format=3 uid="uid://h4owt666ubs7"]
+[gd_scene load_steps=13 format=3 uid="uid://h4owt666ubs7"]
 
 [ext_resource type="Script" uid="uid://txh7npd6bu3n" path="res://scripts/hud.gd" id="1_047uy"]
 [ext_resource type="FontFile" uid="uid://b5lt86xpjc501" path="res://assets/Pixel Game.otf" id="1_ahhtf"]
 [ext_resource type="FontFile" uid="uid://pk0p65lc6pxm" path="res://assets/RussoOne-Regular.ttf" id="2_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://7pbkyyv2dq4m" path="res://images/arrow.png" id="3_6fi6k"]
-[ext_resource type="Texture2D" uid="uid://b7w0ib43smq33" path="res://images/click.png" id="4_uo2fv"]
+[ext_resource type="Animation" uid="uid://xlwk8ttm3837" path="res://assets/animations/keybind.res" id="4_hd3ao"]
+[ext_resource type="Animation" uid="uid://7c7du3hfnb0j" path="res://assets/animations/RESET.res" id="5_0i1j5"]
 [ext_resource type="AudioStream" uid="uid://dfkk766f2f46x" path="res://assets/sfx/click.mp3" id="5_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://iwlmc6u4w22h" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/frames/ui_heart_full.png" id="7_5pdws"]
 
@@ -26,146 +27,19 @@ bg_color = Color(0.8901362, 0.293802, 0.17714882, 1)
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 
-[sub_resource type="Animation" id="Animation_047uy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cursor:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_6fi6k")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cursor:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2237, 1673)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Button:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 1528)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PanelKeybind:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-624, 1520)]
-}
-
-[sub_resource type="Animation" id="Animation_5pdws"]
-resource_name = "keybind"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cursor:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.99, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("3_6fi6k"), ExtResource("3_6fi6k"), ExtResource("4_uo2fv")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cursor:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.25, 2, 2.1, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(2237, 1673), Vector2(2237, 1520), Vector2(607, 1520), Vector2(574, 1523), Vector2(1197, 1520), Vector2(1197, 1143)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Button:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.1, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 1521), Vector2(0, 1521), Vector2(621, 1521), Vector2(621, 1118)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PanelKeybind:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.1, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-624, 1520), Vector2(-624, 1520), Vector2(0, 1520), Vector2(0, 1117)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hd3ao"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mphia"]
 _data = {
-&"RESET": SubResource("Animation_047uy"),
-&"keybind": SubResource("Animation_5pdws")
+&"RESET": ExtResource("5_0i1j5"),
+&"keybind": ExtResource("4_hd3ao")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo2fv"]
 bg_color = Color(0.76862746, 0.23137255, 0.12941177, 1)
 
-[node name="HUD" type="CanvasLayer" unique_id=55689583]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_047uy")
 
-[node name="Title" type="Label" parent="." unique_id=431311249]
+[node name="Title" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -178,12 +52,12 @@ theme_override_fonts/font = ExtResource("1_ahhtf")
 theme_override_font_sizes/font_size = 128
 text = "Tutorial Level"
 
-[node name="Button" type="Button" parent="." unique_id=70539389]
+[node name="Button" type="Button" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -116.0
-offset_right = 684.999
+offset_right = 684.99927
 offset_bottom = 7.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_oo0fn")
@@ -195,21 +69,23 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_5ysmq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_5ysmq")
 text = "C for Keybinds"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=97835941]
-libraries/ = SubResource("AnimationLibrary_hd3ao")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mphia")
+}
 
-[node name="Cursor" type="TextureRect" parent="." unique_id=1936326221]
+[node name="Cursor" type="TextureRect" parent="."]
 offset_left = 2237.0
 offset_top = 1673.0
 offset_right = 2637.0
-offset_bottom = 2189.0002
+offset_bottom = 2189.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_6fi6k")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2094260358]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_uo2fv")
 
-[node name="PanelKeybind" type="Panel" parent="." unique_id=735119691]
+[node name="PanelKeybind" type="Panel" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -220,7 +96,7 @@ offset_bottom = 403.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uo2fv")
 
-[node name="TitleKeybind" type="Label" parent="PanelKeybind" unique_id=1702107972]
+[node name="TitleKeybind" type="Label" parent="PanelKeybind"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -233,7 +109,7 @@ theme_override_fonts/font = ExtResource("2_oo0fn")
 theme_override_font_sizes/font_size = 70
 text = "Keybinds"
 
-[node name="Keybinds" type="Label" parent="PanelKeybind" unique_id=562401605]
+[node name="Keybinds" type="Label" parent="PanelKeybind"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -250,32 +126,32 @@ E to Attack
 R to Respawn"
 autowrap_mode = 2
 
-[node name="Heart0" type="TextureRect" parent="." unique_id=1297742516]
+[node name="Heart0" type="TextureRect" parent="."]
 offset_right = 189.0
 offset_bottom = 189.0
 texture = ExtResource("7_5pdws")
 
-[node name="Heart1" type="TextureRect" parent="." unique_id=1575406526]
+[node name="Heart1" type="TextureRect" parent="."]
 offset_left = 201.0
 offset_right = 390.0
 offset_bottom = 189.0
 texture = ExtResource("7_5pdws")
 
-[node name="Heart2" type="TextureRect" parent="." unique_id=1978769858]
+[node name="Heart2" type="TextureRect" parent="."]
 offset_left = 399.0
 offset_top = -1.0
 offset_right = 588.0
 offset_bottom = 188.0
 texture = ExtResource("7_5pdws")
 
-[node name="Heart3" type="TextureRect" parent="." unique_id=168496569]
+[node name="Heart3" type="TextureRect" parent="."]
 offset_left = 600.0
 offset_top = -1.0
 offset_right = 789.0
 offset_bottom = 188.0
 texture = ExtResource("7_5pdws")
 
-[node name="Heart4" type="TextureRect" parent="." unique_id=1554579699]
+[node name="Heart4" type="TextureRect" parent="."]
 offset_left = 797.0
 offset_right = 986.0
 offset_bottom = 189.0

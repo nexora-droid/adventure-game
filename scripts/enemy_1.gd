@@ -3,6 +3,8 @@ extends CharacterBody2D
 var is_targeting_player := false
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var player: CharacterBody2D = $"../Player"
+@onready var area_2d: Area2D = $Area2D
+@onready var player_checker: CollisionShape2D = $Area2D/PlayerChecker
 var health := 100
 var speed := 120
 var min_distance := 50
@@ -10,11 +12,15 @@ var is_hit := false
 var can_damage := true
 var is_attacking := false
 signal hit_player()
+
 func _ready() -> void:
 	player.connect("damage", Callable(self, "_on_damage"))
+
 func _physics_process(delta: float) -> void:
 	if is_hit or sprite.animation=="death":
 		move_and_slide()
+		return
+	if player.dead == true:
 		return
 	var direction=player.position-position
 	var distance=direction.length()
@@ -39,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		if not is_attacking:
 			sprite.play("idle")
+
 func damage() -> void:
 	if not can_damage or is_attacking:
 		return
@@ -47,8 +54,7 @@ func damage() -> void:
 	velocity = Vector2.ZERO
 	sprite.play("attack")
 	await sprite.animation_finished
-	if (player.position - position).length() <= min_distance:
-		emit_signal("hit_player")
+	area_2d.monitoring = true
 	sprite.play("idle")
 	await get_tree().create_timer(0.5).timeout
 	can_damage = true
@@ -62,6 +68,9 @@ func _on_damage(enemy_id: int) -> void:
 		await sprite.animation_finished
 		queue_free()
 	else:
+		sprite.modulate = Color(1,0.3,0.3)
+		await get_tree().create_timer(0.2).timeout # duration
+		sprite.modulate = Color(1,1,1)
 		health -= 20
 		if not is_hit:
 			is_hit = true
@@ -69,3 +78,9 @@ func _on_damage(enemy_id: int) -> void:
 			await sprite.animation_finished
 			is_hit = false
 			sprite.play("idle")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	for bodies in area_2d.get_overlapping_bodies():
+		if bodies.is_in_group("Player"):
+			emit_signal("hit_player")

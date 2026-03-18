@@ -18,12 +18,16 @@ signal damage(id)
 var damage_emitted:= false
 var can_damage:= true
 var is_hit := false
+var dead =  false
+
 func _ready() -> void:
 	enemy_1.connect("hit_player", Callable(self, "_on_damage"))
-	enemy_2.connect("hit_player", Callable(self, "_on_damage"))
-	enemy_3.connect("hit_player", Callable(self, "_on_damage"))
-	enemy_4.connect("hit_player", Callable(self, "_on_damage"))
-	enemy_5.connect("hit_player", Callable(self, "_on_damage"))
+	if enemy_2 and enemy_3 and enemy_4 and enemy_5 != null:
+		enemy_2.connect("hit_player", Callable(self, "_on_damage"))
+		enemy_3.connect("hit_player", Callable(self, "_on_damage"))
+		enemy_4.connect("hit_player", Callable(self, "_on_damage"))
+		enemy_5.connect("hit_player", Callable(self, "_on_damage"))
+
 func _physics_process(_delta: float) -> void:
 	var direction = Vector2.ZERO
 	
@@ -39,8 +43,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 		if not is_attacking and not is_hit:
-			if sprite.animation != "idle":
-				sprite.play("idle")
+			sprite.play("idle")
 
 	if direction.x > 0:
 		sprite.flip_h = false
@@ -60,6 +63,7 @@ func _physics_process(_delta: float) -> void:
 				emit_signal("damage", enemy.get_instance_id())
 				damage_emitted = true
 				start_damage_cooldown()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("action") and is_attacking == false:
 		is_attacking = true
@@ -68,20 +72,27 @@ func _unhandled_input(event: InputEvent) -> void:
 		sprite.play("attack")
 		await sprite.animation_finished
 		is_attacking = false
+
 func start_damage_cooldown() -> void:
 	await get_tree().create_timer(1).timeout
 	can_damage = true
+
 signal update_bar(value)
+
 func _on_damage() -> void:
 	if is_hit:
 		return
 	if is_attacking:
 		return
 	is_hit = true
-	if health == 20:
+	
+	if health <= 20:
+		sprite.play("breathing")
+	
+	if health <= 0:
 		print("gone case")
+		died()
 		sprite.play("death")
-		health -= 20
 		update_bar.emit(health)
 	else:
 		sprite.play("hit")
@@ -90,3 +101,9 @@ func _on_damage() -> void:
 	print("ouch")
 	await sprite.animation_finished
 	is_hit = false
+
+func died():
+	dead = true
+	e_detector_hitbox.disabled = true
+	enemy_detector.monitoring = false
+	

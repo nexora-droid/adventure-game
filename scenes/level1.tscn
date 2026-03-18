@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b5kenucj1blut"]
+[gd_scene load_steps=11 format=3 uid="uid://b5kenucj1blut"]
 
 [ext_resource type="PackedScene" uid="uid://dnjws642i0y7u" path="res://scenes/player.tscn" id="1_6sh32"]
 [ext_resource type="Texture2D" uid="uid://dx8ymj7ijdbeb" path="res://assets/sprites/0x72_DungeonTilesetII_v1.7/0x72_DungeonTilesetII_v1.7.png" id="2_ejswk"]
@@ -852,18 +852,18 @@ sources/0 = SubResource("TileSetAtlasSource_5gf0t")
 sources/2 = SubResource("TileSetAtlasSource_cb5na")
 sources/3 = SubResource("TileSetAtlasSource_j62u1")
 
-[node name="Game" type="Node2D" unique_id=1245345089]
+[node name="Game" type="Node2D"]
 
-[node name="Player" parent="." unique_id=176458818 instance=ExtResource("1_6sh32")]
+[node name="Player" parent="." instance=ExtResource("1_6sh32")]
 z_index = 1
 position = Vector2(-2, -86)
 motion_mode = 1
 floor_block_on_wall = false
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1846635459]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(5, 5)
 
-[node name="TileMap" type="TileMap" parent="." unique_id=1348142237]
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_cb5na")
 format = 2
 layer_0/name = "World"
@@ -873,28 +873,26 @@ layer_1/tile_data = PackedInt32Array(-327686, 2, 3, -262150, 2, 3, -196614, 2, 3
 layer_2/name = "Corners"
 layer_2/tile_data = PackedInt32Array(1441786, 262146, 4, 1376366, 458754, 4)
 
-[node name="HUD" parent="." unique_id=55689583 instance=ExtResource("5_d3jkd")]
-visible = false
+[node name="HUD" parent="." instance=ExtResource("5_d3jkd")]
 
-[node name="Enemy1" parent="." unique_id=810151803 groups=["enemy"] instance=ExtResource("6_u3awl")]
+[node name="Enemy1" parent="." groups=["enemy"] instance=ExtResource("6_u3awl")]
 position = Vector2(355, -30)
 collision_layer = 4
 
-[node name="Enemy3" parent="." unique_id=1112949793 groups=["enemy"] instance=ExtResource("6_u3awl")]
+[node name="Enemy3" parent="." groups=["enemy"] instance=ExtResource("6_u3awl")]
 position = Vector2(356, 149)
 collision_layer = 4
 
-[node name="Enemy5" parent="." unique_id=1142484121 groups=["enemy"] instance=ExtResource("6_u3awl")]
+[node name="Enemy5" parent="." groups=["enemy"] instance=ExtResource("6_u3awl")]
 position = Vector2(1339, -19)
 collision_layer = 4
 
-[node name="Enemy4" parent="." unique_id=1586541307 groups=["enemy"] instance=ExtResource("6_u3awl")]
+[node name="Enemy4" parent="." groups=["enemy"] instance=ExtResource("6_u3awl")]
 position = Vector2(879, 143)
 collision_layer = 4
 
-[node name="Enemy2" parent="." unique_id=1874360973 groups=["enemy"] instance=ExtResource("6_u3awl")]
+[node name="Enemy2" parent="." groups=["enemy"] instance=ExtResource("6_u3awl")]
 position = Vector2(871, -28)
 collision_layer = 4
 
-[editable path="HUD"]
 [editable path="Enemy1"]

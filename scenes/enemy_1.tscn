@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b1g7g5kkdfeb2"]
+[gd_scene load_steps=5 format=3 uid="uid://b1g7g5kkdfeb2"]
 
 [ext_resource type="Script" uid="uid://crpli56v2arfg" path="res://scripts/enemy_1.gd" id="1_a1412"]
 [ext_resource type="SpriteFrames" uid="uid://bwyhvqp8bphxj" path="res://assets/sprites/duelyst-animated-sprites-godot-e9df7a6824b0f9fd16dc43534a93b6f150b13bca/addons/duelyst_animated_sprites/assets/spriteframes/units/boss_sandpanther.tres" id="1_tcmaw"]
@@ -7,21 +7,24 @@
 size = Vector2(29, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1412"]
+size = Vector2(20, 52)
 
-[node name="Enemy1" type="CharacterBody2D" unique_id=1112949793]
+[node name="Enemy1" type="CharacterBody2D" groups=["enemys"]]
 script = ExtResource("1_a1412")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=655425944]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_tcmaw")
 animation = &"attack"
 autoplay = "idle"
 
-[node name="MainHitbox" type="CollisionShape2D" parent="." unique_id=1022422458]
+[node name="MainHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(4.5, 22.5)
 shape = SubResource("RectangleShape2D_tcmaw")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1035437501]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="PlayerChecker" type="CollisionShape2D" parent="Area2D" unique_id=1944442460]
-position = Vector2(44, 18)
+[node name="PlayerChecker" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(44, 20)
 shape = SubResource("RectangleShape2D_a1412")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

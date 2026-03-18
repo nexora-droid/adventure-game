@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://3bpqc7jejnad"]
+[gd_resource type="SpriteFrames" load_steps=116 format=3 uid="uid://3bpqc7jejnad"]
 
 [ext_resource type="Texture2D" uid="uid://knaxijhnewa7" path="res://assets/sprites/duelyst-animated-sprites-godot-e9df7a6824b0f9fd16dc43534a93b6f150b13bca/addons/duelyst_animated_sprites/assets/spritesheets/units/f1_invincibuddy.png" id="1_qt3j7"]
 
@@ -702,7 +702,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7ygxc")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
